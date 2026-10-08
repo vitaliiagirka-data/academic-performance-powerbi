@@ -44,8 +44,8 @@ Four pages with button navigation, plus a tooltip page and drill-through.
 
 ## What I built
 
-- **Data preparation:** cleaning and type fixes in Power Query.
-- **Data model:** star schema with correct relationships and a calendar table.
+- **Data preparation:** removed duplicates, fixed data types, handled missing values, standardized text values.
+- **Data model:** star schema with one snowflaked branch (classes → students), plus a calendar table.
 - **DAX measures with different filter-context behaviour**, for example:
   - averages by assessment type (exam, homework, test, project, quiz);
   - strongest / lowest subject per class and its difference from the subject benchmark;
@@ -53,7 +53,7 @@ Four pages with button navigation, plus a tooltip page and drill-through.
   - month-over-month change (MoM %) and academic-year-to-date average (YTD).
 - **Interactivity:** slicers, cross-filtering between visuals, a report-page tooltip and drill-through to class details.
 
-Example measure: comparing a class's strongest subject with the school-wide average for the same subject.
+Example measures: comparing a class's strongest subject with the school-wide average for the same subject.
 
 ```dax
 -- Average grade of the class in its strongest subject
