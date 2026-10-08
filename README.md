@@ -53,9 +53,7 @@ Four pages with button navigation, plus a tooltip page and drill-through.
   - month-over-month change (MoM %) and academic-year-to-date average (YTD).
 - **Interactivity:** slicers, cross-filtering between visuals, a report-page tooltip and drill-through to class details.
 
-Example measure:
-
-comparing a class's strongest subject with the school-wide average for the same subject.
+Example measure: comparing a class's strongest subject with the school-wide average for the same subject.
 
 ```dax
 -- Average grade of the class in its strongest subject
@@ -82,7 +80,6 @@ RETURN
 -- How much the class outperforms the school benchmark in that subject
 Top vs Subject Avg =
 [Top Subject Class Avg] - [Top Subject School Avg]
-```
 ```
 
 ## Key findings
