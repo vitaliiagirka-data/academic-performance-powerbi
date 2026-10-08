@@ -55,8 +55,34 @@ Four pages with button navigation, plus a tooltip page and drill-through.
 
 Example measure:
 
+comparing a class's strongest subject with the school-wide average for the same subject.
+
 ```dax
--- TODO: paste one or two of your DAX formulas here
+-- Average grade of the class in its strongest subject
+Top Subject Class Avg =
+VAR StrongestSubject = [Top Subject]
+RETURN
+    CALCULATE(
+        [Average Grade],
+        REMOVEFILTERS(subjects[subject_name]),
+        TREATAS({ StrongestSubject }, subjects[subject_name])
+    )
+
+-- School-wide average for the same subject (class filter removed)
+Top Subject School Avg =
+VAR StrongestSubject = [Top Subject]
+RETURN
+    CALCULATE(
+        [Average Grade],
+        REMOVEFILTERS(classes),
+        REMOVEFILTERS(subjects[subject_name]),
+        TREATAS({ StrongestSubject }, subjects[subject_name])
+    )
+
+-- How much the class outperforms the school benchmark in that subject
+Top vs Subject Avg =
+[Top Subject Class Avg] - [Top Subject School Avg]
+```
 ```
 
 ## Key findings
@@ -71,7 +97,7 @@ Example measure:
 ## Files
 
 - `Power_BI_Portfolio_Vitaliia_Girka_Academic_Performance.pbix` — Power BI report
-- `Power_BI_Portfolio_Vitaliia_Girka.pdf` — PDF export of all pages
+- `Power_BI_Portfolio_Vitaliia_Girka_Academic_Performance.pdf` — PDF export of all pages
 - `images/` — screenshots
 
 ## Tools
